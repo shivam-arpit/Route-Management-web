@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Route Manager - Web Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Date and Time Picker Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- Chart.js for Analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Top Header Bar -->
+    <header class="top-header">
+        <div class="header-left">
+            <button class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">
+                <i class="fas fa-map-marked-alt"></i>
+                <h1> Route Manager</h1>
+            </div>
+        </div>
+        
+        <div class="header-center">
+            <div class="notification-bar">
+                <div class="notification-info">
+                    <div class="notification-icon">
+                        <i class="fas fa-exclamation"></i>
+                    </div>
+                    <div class="notification-text" id="notification-text">Loading routes...</div>
+                </div>
+                <div class="notification-time" id="current-time">--:--</div>
+                <div class="notification-actions">
+                    <button class="notification-btn" id="refresh-notifications">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                    <button class="notification-btn" id="clear-notifications">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <div class="user-profile">
+                <div class="user-info">
+                    <div class="user-name">Rajesh Sharma</div>
+                    <div class="user-role">Field Sales Executive</div>
+                </div>
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3><i class="fas fa-map-marker-alt"></i>  Operations</h3>
+        </div>
+        
+        <div class="sidebar-menu">
+            <a href="#" class="sidebar-item active" data-page="home">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            
+            <a href="#" class="sidebar-item" data-page="routes">
+                <i class="fas fa-route"></i>
+                <span> Routes</span>
+                <span class="sidebar-badge" id="routes-badge">4</span>
+            </a>
+            
+            <a href="#" class="sidebar-item" data-page="visits">
+                <i class="fas fa-store"></i>
+                <span>My Visits</span>
+                <span class="sidebar-badge" id="visits-badge">5</span>
+            </a>
+            
+            <a href="#" class="sidebar-item" data-page="customers">
+                <i class="fas fa-users"></i>
+                <span>Customers</span>
+            </a>
+            
+            <a href="#" class="sidebar-item" data-page="orders">
+                <i class="fas fa-clipboard-list"></i>
+                <span>Orders</span>
+                <span class="sidebar-badge" id="orders-badge">5</span>
+            </a>
+            
+            <!-- Analytics removed and integrated into Dashboard -->
+            
+            <a href="#" class="sidebar-item" data-page="reports">
+                <i class="fas fa-file-alt"></i>
+                <span>Reports</span>
+            </a>
+            
+            <div class="sidebar-divider"></div>
+            
+            <a href="#" class="sidebar-item" data-page="settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            
+            <a href="#" class="sidebar-item" data-page="help">
+                <i class="fas fa-question-circle"></i>
+                <span>Help & Support</span>
+            </a>
+        </div>
+        
+        <div class="sidebar-footer">
+            <div class="user-status">
+                <div class="status-indicator active"></div>
+                <span>Online</span>
+            </div>
+            <button class="logout-btn" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="main-content">
+        <!-- Content will be loaded here dynamically -->
+        <div class="loading-spinner" id="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading  Route Manager...</p>
+        </div>
+    </main>
+
+    <!-- Modals Container -->
+    <div id="modals-container"></div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- Main App -->
+    <script src="app.js"></script>
+</body>
+</html>
